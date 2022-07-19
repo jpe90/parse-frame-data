@@ -1,0 +1,58 @@
+name:                parse-frame-data
+version:             0.1.0.0
+github:              "jpe90/parse-frame-data"
+license:             BSD3
+author:              "jpe"
+maintainer:          "toastedoats223@outlook.com"
+copyright:           "MIT"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/jpe90/parse-frame-data#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- trifecta
+- parsers
+- raw-strings-qq
+- text
+- containers
+- neat-interpolation
+- wreq
+- bytestring
+- lens
+
+library:
+  source-dirs: src
+
+executables:
+  parse-frame-data-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - parse-frame-data
+
+tests:
+  parse-frame-data-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - parse-frame-data
+    - hspec
